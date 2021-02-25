@@ -19,7 +19,7 @@ class NameFrequency:
         data = pd.read_csv(file_name)
         data.dropna(inplace=True)
         data_frame = dict(data[column_name].str.split(" ", n=1, expand=True))
-        self.data_frame = data_frame
+        self.data_frame = pd.DataFrame(data=data_frame)
         if isinstance(self.data_frame, pd.DataFrame):
             return True
         return False
@@ -69,7 +69,7 @@ class NameFrequency:
                     print("Index does not exist! Try again.")
                     continue
                 return userInput
-                break
+                
 
     def inputFileName(self, input_value):
         while True:
@@ -79,7 +79,7 @@ class NameFrequency:
                 continue
             else:
                 return userInput
-                break
+                
 
     def inputColumnName(self, input_value, data_frame):
         while True:
@@ -90,7 +90,7 @@ class NameFrequency:
                 continue
             else:
                 return userInput
-                break
+                
 
 
 
