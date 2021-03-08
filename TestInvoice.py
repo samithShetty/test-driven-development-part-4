@@ -1,6 +1,7 @@
 import pytest
 from Invoice import Invoice
 
+
 @pytest.fixture()
 def products():
     products = {
@@ -9,19 +10,28 @@ def products():
     }
     return products
 
+
 @pytest.fixture()
 def invoice():
     invoice = Invoice()
     return invoice
 
+
 def test_CanCalculateTotalImpurePrice(invoice, products):
     invoice.totalImpurePrice(products)
     assert invoice.totalImpurePrice(products) == 75
+
 
 def test_CanCalculateTotalDiscount(invoice, products):
     invoice.totalDiscount(products)
     assert invoice.totalDiscount(products) == 5.62
 
+
 def test_CanCalculateTotalPurePrice(invoice, products):
     invoice.totalPurePrice(products)
     assert invoice.totalPurePrice(products) == 69.38
+
+
+def test_Display(invoice, products):
+    invoice.display(products)
+    assert invoice.display(products) == f"""Impure Price = {75.0} \nDiscount = {5.62} \nPure Price = {69.38}"""
