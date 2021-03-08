@@ -46,4 +46,4 @@ class Invoice:
         impurePrice = self.totalImpurePrice(products)
         discount = self.totalDiscount(products)
         purePrice = self.totalPurePrice(products)
-        print(f"""Impure Price = {impurePrice} \nDiscount = {discount} \nPure Price = {purePrice}""");
+        return f"""Impure Price = {impurePrice} \nDiscount = {discount} \nPure Price = {purePrice}"""
