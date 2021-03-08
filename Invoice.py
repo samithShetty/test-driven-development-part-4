@@ -46,4 +46,10 @@ class Invoice:
         impurePrice = self.totalImpurePrice(products)
         discount = self.totalDiscount(products)
         purePrice = self.totalPurePrice(products)
-        return f"""Impure Price = {impurePrice} \nDiscount = {discount} \nPure Price = {purePrice}"""
+        return f"Impure Price = {impurePrice} \nDiscount = {discount} \nPure Price = {purePrice}"
+
+    def totalTax(self, products):
+        purePrice = self.totalPurePrice(products)
+        taxAmount = round(.15 * purePrice,2)
+        return taxAmount
+
