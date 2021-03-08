@@ -12,7 +12,7 @@ class Invoice:
         for v in products.values():
             total_impure_price += float(v['unit_price']) * int(v['qnt'])
         total_impure_price = round(total_impure_price, 2)
-        return total_impure_price    
+        return total_impure_price
 
     def totalDiscount(self, products):
         total_discount = 0
@@ -25,14 +25,14 @@ class Invoice:
     def totalPurePrice(self, products):
         total = self.totalImpurePrice(products) - self.totalDiscount(products)
         return total
-    
+
     def inputAnswer(self, input_value):
         while True:
             userInput = input(input_value)
             if userInput in ['y', 'n']:
                 return userInput
             print('y or n! Try again.')
-    
+
     def inputNumber(self, input_value):
         while True:
             try:
@@ -41,3 +41,9 @@ class Invoice:
                 print("Not a number! Try again")
             else:
                 return userInput
+
+    def display(self, products):
+        impurePrice = self.totalImpurePrice(products)
+        discount = self.totalDiscount(products)
+        purePrice = self.totalPurePrice(products)
+        print(f"""Impure Price = {impurePrice} \nDiscount = {discount} \nPure Price = {purePrice}""");

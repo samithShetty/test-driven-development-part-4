@@ -1,5 +1,5 @@
 from Invoice import Invoice
- 
+
 products = {}
 total_amount = 0
 repeat = ''
@@ -14,5 +14,6 @@ while True:
    if repeat == 'n':
        break
 total_amount = Invoice().totalPurePrice(products)
- 
+
 print("Your total pure price is: ", total_amount)
+#print(Invoice().display(products));
