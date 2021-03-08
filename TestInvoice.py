@@ -31,7 +31,10 @@ def test_CanCalculateTotalPurePrice(invoice, products):
     invoice.totalPurePrice(products)
     assert invoice.totalPurePrice(products) == 69.38
 
-
-def test_Display(invoice, products):
+def test_CanDisplay(invoice, products):
     invoice.display(products)
-    assert invoice.display(products) == f"""Impure Price = {75.0} \nDiscount = {5.62} \nPure Price = {69.38}"""
+    assert invoice.display(products) == f"Impure Price = {75.0} \nDiscount = {5.62} \nPure Price = {69.38}"
+
+def test_CanCalculateTotalTax(invoice, products):
+    invoice.totalTax(products)
+    assert invoice.totalTax(products) == 10.41
